@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AILocal – The Renaissance of Local Power</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0908;
+            --bg-secondary: #0f0e0d;
+            --text-primary: #e8e3d3;
+            --text-secondary: #b8a584;
+            --text-tertiary: #d4cfc0;
+            --accent: #e8e3d3;
+            --rule-color: rgba(184, 165, 132, 0.2);
+            --rule-color-light: rgba(184, 165, 132, 0.15);
+            --spacing-unit: 2rem;
+            --grid-column: calc((100vw - 24px) / 12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            font-size: 19px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        .grid-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--rule-color);
+            left: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2);
+            z-index: 100;
+            background: rgba(10, 9, 8, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rule-color);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        main {
+            max-width: 100%;
+            position: relative;
+        }
+
+        section {
+            padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+            position: relative;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: calc(var(--spacing-unit) * 2);
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 1px;
+            height: 100%;
+            background: var(--rule-color);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 10%;
+            width: 1px;
+            height: 100%;
+            background: var(--rule-color);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .subline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .learn-more {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s ease;
+        }
+
+        .learn-more:hover {
+            color: var(--text-primary);
+        }
+
+        .learn-more::after {
+            content: ' ↓';
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(5px);
+            }
+            60% {
+                transform: translateY(3px);
+            }
+        }
+
+        .quote-section {
+            background: var(--bg-primary);
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            position: relative;
+            border-top: 1px solid var(--rule-color);
+            border-bottom: 1px solid var(--rule-color);
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: var(--spacing-unit);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--text-secondary);
+        }
+
+        blockquote {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-align: left;
+            font-style: normal;
+            color: var(--text-primary);
+        }
+
+        .content {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 3) 0;
+            position: relative;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 1px;
+            height: 100%;
+            background: var(--rule-color);
+        }
+
+        .content p {
+            margin-bottom: var(--spacing-unit);
+            position: relative;
+            color: var(--text-tertiary);
+        }
+
+        .content p em {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .content p:nth-child(5) {
+            padding-top: var(--spacing-unit);
+            border-top: 1px solid var(--rule-color);
+        }
+
+        .architectural-quote {
+            max-width: 850px;
+            margin: calc(var(--spacing-unit) * 3) auto;
+            padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+            text-align: center;
+            position: relative;
+            background: var(--bg-primary);
+            border: 1px solid var(--rule-color);
+        }
+
+        .quote-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            position: relative;
+        }
+
+        .quote-label::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 1px;
+            background: var(--text-secondary);
+        }
+
+        .architectural-quote blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-top: var(--spacing-unit);
+            color: var(--text-primary);
+        }
+
+        .cta {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--rule-color);
+        }
+
+        .cta h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .cta p {
+            font-size: 1rem;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: calc(var(--spacing-unit) * 0.75);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(232, 227, 211, 0.15);
+        }
+
+        .form-placeholder {
+            font-size: 0.9rem;
+            color: #8a816e;
+            margin-top: calc(var(--spacing-unit) * 0.5);
+            font-style: italic;
+        }
+
+        footer {
+            border-top: 2px solid var(--rule-color);
+            padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--bg-secondary);
+        }
+
+        .project-credit {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            text-transform: none;
+            color: #8a816e;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 30px;
+            }
+            
+            nav {
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 30px;
+            }
+
+            .content::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AILocal</div>
+        <nav>
+            <a href="#vision">Vision</a>
+            <a href="#principles">Principles</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>The Renaissance of Local Power</h1>
+            <p class="subline">Reimagining how we interact with artificial intelligence</p>
+            <a href="#vision" class="learn-more">Learn More</a>
+        </section>
+
+        <section class="quote-section">
+            <blockquote>
+                When institutions build tools that claim to serve everyone but still tether creation to their own platforms, the result is not empowerment but dependence. The gift is never free; every act of making carries an unseen cost – in data, in privacy, in autonomy. AILocal exists to end that bargain.
+            </blockquote>
+        </section>
+
+        <section id="vision">
+            <div class="content">
+                <p>Men and women of conviction are meant to stand at the vanguard of ingenuity, not the power brokers and gatekeepers of Silicon Valley. For too long, power has drifted from the hands of users to the vaults of corporations. What was once open and collaborative has been replaced by closed clouds, subscription tithes, and the quiet trade of personal data for profit.</p>
+
+                <p>Tech monopolies herd the masses – unwillingly – into walled gardens that promise convenience but strip away agency and sovereignty. The result has been the withering of human potential and the flattening of culture into short-form distraction. Technology has built the infrastructure to channel the creative spirit of the many, yet has wasted that surging tide on the imperatives of the attention economy. The effects of this shortsightedness will be felt for generations – unless we act.</p>
+
+                <p>I believe that everyone is already a domain expert in something. I believe that innovation can come from the mind of any human being and that for the sake of progress the tools of technological creation should belong to <em>everyone</em> – not only to an initiated few steeped in logic and arcane computer languages.</p>
+
+                <p>AILocal exists to grant that power to the people who understand their worlds best: teachers, artists, scientists, and small business owners, but who understand technology, perhaps not at all. AILocal wants to offer them this power without ever asking them to surrender their privacy, sovereignty, or security.</p>
+
+                <p>The age of technological feudalism has gone on long enough. It is time for a renaissance of local power.</p>
+
+                <p>I am a dentist – and a writer, composer, and systems designer – but I am not a programmer. Yet, I've designed and built a prototype that reimagines how we interact with AI because I see that the establishment is building the opposite. AILocal isn't another wrapper that thinks for you; it's an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user's autonomy.</p>
+
+                <p>If you're a developer or systems engineer who believes in local computation, data sovereignty, and human-centered design, I want to meet you. If you believe technology should be both ethical and sustainable – owned, not rented; profitable, not extractive – then let's build it. I'm looking for a technical co-founder – someone serious, principled, and driven by the conviction that technology should be built for the user, not the developer.</p>
+            </div>
+        </section>
+
+        <section id="principles" class="architectural-quote">
+            <blockquote>
+                Tech monopolies herd the masses – unwillingly – into walled gardens that promise convenience but strip away agency and sovereignty... unless we act.
+            </blockquote>
+        </section>
+
+        <section id="contact" class="cta">
+            <h2>Join the Movement</h2>
+            <p>I'm a practicing dentist and active professional. I personally review every message and reply when I believe there's genuine alignment and potential collaboration.</p>
+            <a href="mailto:founder@ailocal.dev" class="contact-button">Write to the Founder</a>
+            <p class="form-placeholder">A contact form will be available here soon.</p>
+        </section>
+    </main>
+
+    <footer>
+        © AILocal
+        <p class="project-credit">An Acharya Interactive project</p>
+    </footer>
+</body>
+</html>
