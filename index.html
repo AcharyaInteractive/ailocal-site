@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AILocal – The Renaissance of Local Power</title>
+    <meta name="description" content="Local-first AI architecture that lets non-coders build real software while keeping full control over code, models, and data.">
+    <meta property="og:title" content="AILocal — The Renaissance of Local Power">
+    <meta property="og:description" content="An offline-first AI architecture built for creators, not platforms. Keep the keys to your code, models, and data.">
+    <meta property="og:url" content="https://ailocal.dev">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ailocal.dev/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,7 +23,6 @@
             --rule-color: rgba(184, 165, 132, 0.2);
             --rule-color-light: rgba(184, 165, 132, 0.15);
             --spacing-unit: 2rem;
-            --grid-column: calc((100vw - 24px) / 12);
         }
 
         * {
@@ -42,14 +48,6 @@
             color: var(--text-primary);
             background: var(--bg-primary);
             overflow-x: hidden;
-        }
-
-        .grid-line {
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background: var(--rule-color);
-            left: 0;
         }
 
         header {
@@ -155,6 +153,21 @@
             color: var(--text-primary);
         }
 
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: calc(var(--spacing-unit) * 0.75);
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
         .subline {
             font-size: 1.25rem;
             color: var(--text-secondary);
@@ -251,11 +264,6 @@
             color: var(--text-primary);
         }
 
-        .content p:nth-child(5) {
-            padding-top: var(--spacing-unit);
-            border-top: 1px solid var(--rule-color);
-        }
-
         .architectural-quote {
             max-width: 850px;
             margin: calc(var(--spacing-unit) * 3) auto;
@@ -266,31 +274,10 @@
             border: 1px solid var(--rule-color);
         }
 
-        .quote-label {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--text-secondary);
-            margin-bottom: calc(var(--spacing-unit) * 0.5);
-            position: relative;
-        }
-
-        .quote-label::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 1px;
-            background: var(--text-secondary);
-        }
-
         .architectural-quote blockquote {
             font-size: 1.3rem;
             font-style: italic;
             line-height: 1.8;
-            margin-top: var(--spacing-unit);
             color: var(--text-primary);
         }
 
@@ -341,19 +328,11 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: calc(var(--spacing-unit) * 0.75);
         }
 
         .contact-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(232, 227, 211, 0.15);
-        }
-
-        .form-placeholder {
-            font-size: 0.9rem;
-            color: #8a816e;
-            margin-top: calc(var(--spacing-unit) * 0.5);
-            font-style: italic;
         }
 
         footer {
@@ -410,7 +389,7 @@
     <main>
         <section class="hero">
             <h1>The Renaissance of Local Power</h1>
-            <p class="subline">Technology should be built for the user, not the developer</p>
+            <p class="subline">Build where you keep the keys—code, models, and data stay on your machine.</p>
             <a href="#vision" class="learn-more">Learn More</a>
         </section>
 
@@ -422,18 +401,23 @@
 
         <section id="vision">
             <div class="content">
+                <h2>Vision</h2>
                 <p>Men and women of conviction are meant to stand at the vanguard of ingenuity, not the power brokers and gatekeepers of Silicon Valley. For too long, power has drifted from the hands of users to the vaults of corporations. What was once open and collaborative has been replaced by closed clouds, subscription tithes, and the quiet trade of personal data for profit.</p>
 
                 <p>Tech monopolies herd the masses – unwillingly – into walled gardens that promise convenience but strip away agency and sovereignty. The result has been the withering of human potential and the flattening of culture into short-form distraction. Technology has built the infrastructure to channel the creative spirit of the many, yet has wasted that surging tide on the imperatives of the attention economy. The effects of this shortsightedness will be felt for generations – unless we act.</p>
 
+                <h2>Principle</h2>
                 <p>I believe that everyone is already a domain expert in something. I believe that innovation can come from the mind of any human being and that for the sake of progress the tools of technological creation should belong to <em>everyone</em> – not only to an initiated few steeped in logic and arcane computer languages.</p>
 
+                <h2>Restoration</h2>
                 <p>AILocal exists to grant that power to the people who understand their worlds best: teachers, artists, scientists, and small business owners, but who understand technology, perhaps not at all. AILocal wants to offer them this power without ever asking them to surrender their privacy, sovereignty, or security.</p>
 
                 <p>The age of technological feudalism has gone on long enough. It is time for a renaissance of local power.</p>
 
+                <h2>Origins</h2>
                 <p>I am a dentist – and a writer, composer, and systems designer – but I am not a programmer. Yet, I've designed and built a prototype that reimagines how we interact with AI because I see that the establishment is building the opposite. AILocal isn't another wrapper that thinks for you; it's an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user's autonomy.</p>
 
+                <h2>Alliance</h2>
                 <p>If you're a developer or systems engineer who believes in local computation, data sovereignty, and human-centered design, I want to meet you. If you believe technology should be both ethical and sustainable – owned, not rented; profitable, not extractive – then let's build it. I'm looking for a technical co-founder – someone serious, principled, and driven by the conviction that technology should be built for the user, not the developer.</p>
 
                 <p>If this vision stirs something in you, reach out. Let's build the alternative.</p>
@@ -448,9 +432,9 @@
 
         <section id="contact" class="cta">
             <h2>Join the Movement</h2>
-            <p>I'm a practicing dentist who personally reviews every message. Tell me about your background in tech, but also share what drives you beyond code – your interests, your vision for technology's role in society. Above all, I'm looking for alignment and trust.</p>
-            <a href="mailto:founder@ailocal.dev" class="contact-button">Write to the Founder</a>
-            <p class="form-placeholder">A contact form will be available here soon.</p>
+            <p>I'm a practicing dentist working on this project in my free time. I personally review every message, looking for the right fit — someone aligned in vision and spirit. Above all else, I'm seeking trust and the potential for a genuine creative partnership.</p>
+            <p>Tell me about yourself. Include your background in tech, of course, but also share what drives you beyond code — your interests, your passions, and your view of where technology should go next.</p>
+            <a href="mailto:founder@ailocal.dev?subject=Co-founder%20Inquiry" class="contact-button" aria-label="Email the Founder">Email the Founder</a>
         </section>
     </main>
 
