@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AILocal – The Renaissance of Local Power</title>
     <meta name="description" content="Local-first AI architecture that lets non-coders build real software while keeping full control over code, models, and data.">
-    <meta property="og:title" content="AILocal — The Renaissance of Local Power">
+    <meta property="og:title" content="AILocal – The Renaissance of Local Power">
     <meta property="og:description" content="An offline-first AI architecture built for creators, not platforms. Keep the keys to your code, models, and data.">
     <meta property="og:url" content="https://ailocal.dev">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ailocal.dev/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -56,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2);
+            padding: 1rem calc(var(--spacing-unit) * 2); /* slightly more breathing room */
             z-index: 100;
             background: rgba(10, 9, 8, 0.95);
             backdrop-filter: blur(10px);
@@ -74,13 +75,13 @@
 
         nav {
             display: flex;
-            gap: calc(var(--spacing-unit) * 2);
+            gap: calc(var(--spacing-unit) * 1.25);
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: color 0.2s ease;
@@ -164,8 +165,18 @@
             color: var(--text-primary);
         }
 
+        h2[id] {
+            scroll-margin-top: 100px;
+        }
+
         .content h2:first-child {
             margin-top: 0;
+        }
+
+        /* Soften interior H2s without touching hero/CTA headings */
+        .content h2 {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
         }
 
         .subline {
@@ -263,6 +274,19 @@
             margin-bottom: var(--spacing-unit);
             position: relative;
             color: var(--text-tertiary);
+        }
+
+        /* Extra air before each new section header inside .content */
+        .content p + h2 {
+            margin-top: calc(var(--spacing-unit) * 2.25);
+        }
+
+        /* Subtle section dividers to improve scroll cadence */
+        .section-rule {
+            border: 0;
+            height: 1px;
+            background: var(--rule-color-light);
+            margin: calc(var(--spacing-unit) * 2) 0;
         }
 
         .content p em {
@@ -366,7 +390,12 @@
             }
             
             nav {
-                gap: 20px;
+                gap: 15px;
+                font-size: 0.75rem;
+            }
+            
+            nav a {
+                font-size: 0.7rem;
             }
             
             .hero h1 {
@@ -384,11 +413,14 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="logo">AILocal</div>
-        <nav>
+        <nav role="navigation" aria-label="Primary">
             <a href="#vision">Vision</a>
-            <a href="#vision">Principles</a>
+            <a href="#principles">Principles</a>
+            <a href="#restoration">Restoration</a>
+            <a href="#origin">Origin</a>
+            <a href="#alliance">Alliance</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -397,35 +429,43 @@
         <section class="hero">
             <h1>The Renaissance of Local Power</h1>
             <p class="tagline">Your machine. Your IP. Your AI.</p>
-            <a href="#vision" class="learn-more">Learn More</a>
+            <a href="#vision" class="learn-more" aria-label="Jump to Vision">Learn More</a>
         </section>
 
         <section class="quote-section">
             <blockquote>
-                When institutions build tools that claim to serve everyone but still tether creation to their own platforms, the result is not empowerment but dependence. The gift is never free; every act of making carries an unseen cost – in data, in privacy, in autonomy. AILocal exists to end that bargain.
+                When institutions build tools that claim to serve everyone but still tether creation to their own platforms, the result is not empowerment but dependence. The gift is never free; every act of making carries an unseen cost — in data, in privacy, in autonomy. AILocal exists to end that bargain.
             </blockquote>
         </section>
 
         <section id="vision">
             <div class="content">
-                <h2>Vision</h2>
+                <h2 id="vision">Vision</h2>
                 <p>Men and women of conviction are meant to stand at the vanguard of ingenuity, not the power brokers and gatekeepers of Silicon Valley. For too long, power has drifted from the hands of users to the vaults of corporations. What was once open and collaborative has been replaced by closed clouds, subscription tithes, and the quiet trade of personal data for profit.</p>
 
-                <p>Tech monopolies herd the masses – unwillingly – into walled gardens that promise convenience but strip away agency and sovereignty. The result has been the withering of human potential and the flattening of culture into short-form distraction. Technology has built the infrastructure to channel the creative spirit of the many, yet has wasted that surging tide on the imperatives of the attention economy. The effects of this shortsightedness will be felt for generations – unless we act.</p>
+                <p>Tech monopolies herd the masses — unwillingly — into walled gardens that promise convenience but strip away agency and sovereignty. The result has been the withering of human potential and the flattening of culture into short-form distraction. Technology has built the infrastructure to channel the creative spirit of the many, yet has wasted that surging tide on the imperatives of the attention economy. The effects of this shortsightedness will be felt for generations — unless we act.</p>
 
-                <h2>Principles</h2>
-                <p>I believe that everyone is already a domain expert in something. I believe that innovation can come from the mind of any human being and that for the sake of progress the tools of technological creation should belong to <em>everyone</em> – not only to an initiated few steeped in logic and arcane computer languages.</p>
+                <hr class="section-rule" aria-hidden="true">
 
-                <h2>Restoration</h2>
+                <h2 id="principles">Principles</h2>
+                <p>I believe that everyone is already a domain expert in something. I believe that innovation can come from the mind of any human being and that for the sake of progress the tools of technological creation should belong to <em>everyone</em> — not only to an initiated few steeped in logic and arcane computer languages.</p>
+
+                <hr class="section-rule" aria-hidden="true">
+
+                <h2 id="restoration">Restoration</h2>
                 <p>AILocal exists to grant that power to the people who understand their worlds best: teachers, artists, scientists, and small business owners, but who understand technology, perhaps not at all. AILocal wants to offer them this power without ever asking them to surrender their privacy, sovereignty, or security.</p>
 
                 <p>The age of technological feudalism has gone on long enough. It is time for a renaissance of local power.</p>
 
-                <h2>Origin</h2>
-                <p>I am a dentist – and a writer, composer, and systems designer – but I am not a programmer. Yet, I've designed and built a prototype that reimagines how we interact with AI because I see that the establishment is building the opposite. AILocal isn't another wrapper that thinks for you; it's an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user's autonomy.</p>
+                <hr class="section-rule" aria-hidden="true">
 
-                <h2>Alliance</h2>
-                <p>If you're a developer or systems engineer who believes in local computation, data sovereignty, and human-centered design, I want to meet you. If you believe technology should be both ethical and sustainable – owned, not rented; profitable, not extractive – then let's build it. I'm looking for a technical co-founder – someone serious, principled, and driven by the conviction that technology should be built for the user, not the developer.</p>
+                <h2 id="origin">Origin</h2>
+                <p>I am a dentist — and a writer, composer, and systems designer — but I am not a programmer. Yet, I've designed and built a prototype that reimagines how we interact with AI because I see that the establishment is building the opposite. AILocal isn't another wrapper that thinks for you; it's an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user's autonomy.</p>
+
+                <hr class="section-rule" aria-hidden="true">
+
+                <h2 id="alliance">Alliance</h2>
+                <p>If you're a developer or systems engineer who believes in local computation, data sovereignty, and human-centered design, I want to meet you. If you believe technology should be both ethical and sustainable — owned, not rented; profitable, not extractive — then let's build it. I'm looking for a technical co-founder — someone serious, principled, and driven by the conviction that technology should be built for the user, not the developer.</p>
 
                 <p>If this vision stirs something in you, reach out. Let's build the alternative.</p>
             </div>
@@ -439,7 +479,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         © AILocal — Your machine. Your IP. Your AI.
         <p class="project-credit">An Acharya Interactive project</p>
     </footer>
