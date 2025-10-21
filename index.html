@@ -40,7 +40,6 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* ===== Header (mobile-safe) ===== */
     header{
       position:sticky;top:0;z-index:100;
       display:flex;align-items:center;justify-content:space-between;
@@ -76,7 +75,6 @@
     }
     nav a:hover::after{width:100%}
 
-    /* Mobile nav (collapsible) */
     @media (max-width:860px){
       .menu-toggle{display:inline-block}
       nav{
@@ -90,7 +88,6 @@
 
     main{position:relative}
 
-    /* ===== Hero with subtle animated gradient ===== */
     .hero{
       min-height:68vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
       text-align:center;position:relative;overflow:hidden;padding:calc(var(--spacing)*2) var(--spacing);
@@ -125,7 +122,6 @@
     }
     .learn-more:hover{opacity:1;transform:translateY(0)}
 
-    /* ===== Quote band ===== */
     .quote-section{
       background:var(--bg-primary);
       padding:calc(var(--spacing)*3.2) var(--spacing);
@@ -141,7 +137,6 @@
       font-size:1.32rem;color:var(--text-primary);
     }
 
-    /* ===== Content ===== */
     section{padding:calc(var(--spacing)*3) var(--spacing)}
     .content{max-width:var(--maxw);margin:0 auto;position:relative}
     .content::before{
@@ -167,7 +162,6 @@
     }
     .section-rule:is(:hover,:focus-visible){transform:scaleX(1);opacity:1}
 
-    /* ===== CTA ===== */
     .cta{
       text-align:center;background:var(--bg-primary);
       padding:calc(var(--spacing)*3.6) var(--spacing);position:relative
@@ -193,7 +187,6 @@
     }
     .contact-button:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(234,230,216,.16)}
 
-    /* ===== Footer ===== */
     footer{
       background:var(--bg-tertiary);
       border-top:1px solid var(--rule-color);
@@ -205,7 +198,6 @@
       margin-top:6px;font-size:.88rem;text-transform:none;color:#8f8776
     }
 
-    /* Small screens */
     @media (max-width:768px){
       section{padding:60px 28px}
       .content::before{display:none}
@@ -263,7 +255,7 @@
         <hr class="section-rule" aria-hidden="true">
 
         <h2 id="origin">Origin</h2>
-        <p>I am a dentist — and a writer, composer, and systems designer — but I am not a programmer. Yet I’ve designed something that reimagines how we interact with AI, because I see the establishment building in the opposite direction. AILocal isn’t another wrapper that thinks for you; it’s an operating architecture that allows a total novice to harness the power of AI to create complex, modular software — while keeping full autonomy intact.</p>
+        <p>I am a dentist — and a writer, composer, and systems designer — but I am not a programmer. Yet I’ve designed something that reimagines how we interact with AI, because I see the establishment building in the opposite direction. AILocal isn’t another wrapper that thinks for you; it’s an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user’s autonomy. It was born of my own attempt to storm the ramparts of software development unarmed — and every workaround and failsafe I forged to survive that battle became what is now AILocal.</p>
 
         <hr class="section-rule" aria-hidden="true">
 
@@ -288,7 +280,6 @@
   </footer>
 
   <script>
-    // Accessible mobile menu
     const btn = document.querySelector('.menu-toggle');
     const nav = document.getElementById('primary-nav');
     btn.addEventListener('click', () => {
