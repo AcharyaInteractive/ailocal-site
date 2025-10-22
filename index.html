@@ -22,23 +22,31 @@
 
   <style>
     :root{
+      /* Backgrounds */
       --bg-primary:#0a0908;
       --bg-secondary:#0f0e0d;
       --bg-tertiary:#111013;
+
+      /* Typography */
       --text-primary:#f0ebdf;
       --text-secondary:#d6ceb8;
       --text-tertiary:#e1dbc9;
       --muted:#8f8776;
+
+      /* Accents & rules */
       --accent:#c1d6ff;
       --accent-ink:#0a0e14;
       --rule-color:rgba(184,165,132,.25);
       --rule-color-light:rgba(184,165,132,.14);
+
+      /* Layout */
       --spacing:2rem;
       --maxw:720px;
       --radius:12px;
       --shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
+    /* Reset / base */
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -58,6 +66,7 @@
     a:focus-visible,
     button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:8px}
 
+    /* Header / Nav */
     header{
       position:sticky;top:0;z-index:100;
       display:flex;align-items:center;justify-content:space-between;
@@ -107,6 +116,7 @@
 
     main{position:relative}
 
+    /* Hero */
     .hero{
       min-height:68vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
       text-align:center;position:relative;overflow:hidden;padding:calc(var(--spacing)*2) var(--spacing);
@@ -143,6 +153,7 @@
     }
     .learn-more:hover{opacity:1;transform:translateY(-1px);background:rgba(193,214,255,.12);border-color:rgba(193,214,255,.25)}
 
+    /* Pull-quote */
     .quote-section{
       background:var(--bg-primary);
       padding:calc(var(--spacing)*3.2) var(--spacing);
@@ -158,6 +169,7 @@
       font-size:1.3rem;color:var(--text-primary);
     }
 
+    /* Content */
     section{padding:calc(var(--spacing)*3) var(--spacing)}
     .content{max-width:var(--maxw);margin:0 auto;position:relative}
     .content::before{
@@ -171,7 +183,10 @@
       scroll-margin-top:92px;
     }
     .content h2:first-child{margin-top:0}
-    .content p{color:var(--text-tertiary);margin-bottom:var(--spacing)}
+    .content p{
+      color:var(--text-tertiary);
+      margin-bottom:var(--spacing);
+    }
     .content p em{color:var(--text-primary)}
     .section-rule{
       border:0;height:1px;background:var(--rule-color-light);
@@ -180,6 +195,7 @@
     }
     .section-rule:is(:hover,:focus-visible){transform:scaleX(1);opacity:1}
 
+    /* Origin highlight (desktop) */
     #origin-block{
       background:linear-gradient(180deg, var(--bg-secondary) 0%, #141417 100%);
       border:1px solid var(--rule-color);
@@ -189,6 +205,7 @@
       margin-top:calc(var(--spacing)*1.2);
     }
 
+    /* CTA */
     .cta{
       text-align:center;background:var(--bg-primary);
       padding:calc(var(--spacing)*3.6) var(--spacing);position:relative
@@ -215,6 +232,7 @@
     }
     .contact-button:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(193,214,255,.18);filter:saturate(1.05)}
 
+    /* Footer */
     footer{
       background:var(--bg-tertiary);
       border-top:1px solid var(--rule-color);
@@ -226,8 +244,11 @@
       content:"";display:block;height:1px;background:var(--rule-color-light);
       margin:10px 0;
     }
-    .project-credit{margin-top:6px;font-size:.88rem;text-transform:none;color:var(--muted)}
+    .project-credit{
+      margin-top:6px;font-size:.88rem;text-transform:none;color:var(--muted)
+    }
 
+    /* Mobile refinements */
     @media (max-width:768px){
       body{font-size:17px}
       section{padding:56px 24px}
@@ -235,13 +256,24 @@
       blockquote{font-size:1.18rem}
       .hero{min-height:62vh}
       h1{font-size:clamp(1.9rem,7.4vw,3rem)}
+
+      /* Flatten Origin styling on mobile */
+      #origin-block{
+        background:none;
+        border:none;
+        box-shadow:none;
+        padding:0;
+        margin-top:calc(var(--spacing)*0.8);
+      }
     }
   </style>
 </head>
 <body>
   <header role="banner">
     <div class="logo">AILocal</div>
+
     <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+
     <nav id="primary-nav" role="navigation" aria-label="Primary" aria-expanded="false">
       <a href="#vision">Vision</a>
       <a href="#principles">Principles</a>
@@ -253,18 +285,21 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <h1>The Renaissance of Local Power</h1>
       <p class="tagline">Your machine. Your IP. Your AI.</p>
       <a href="#vision" class="learn-more" aria-label="Jump to Vision">Learn More</a>
     </section>
 
+    <!-- PULL QUOTE -->
     <section class="quote-section" aria-labelledby="manifesto-quote">
       <blockquote id="manifesto-quote">
         When institutions build tools that claim to serve everyone but still tether creation to their own platforms, the result is not empowerment but dependence. The gift is never free; every act of making carries an unseen cost — in data, in privacy, in autonomy. AILocal exists to change that bargain.
       </blockquote>
     </section>
 
+    <!-- CONTENT -->
     <section id="vision">
       <div class="content">
         <h2>Vision</h2>
@@ -300,6 +335,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="cta" aria-labelledby="cta-title">
       <h2 id="cta-title">Build the Alternative</h2>
       <p>I’m a practicing dentist working on this project in my free time. I personally review every message, looking for the right fit — someone aligned in vision and spirit. Above all else, I’m seeking trust and the potential for a genuine creative partnership.</p>
@@ -314,12 +350,28 @@
   </footer>
 
   <script>
+    // Accessible mobile nav
     const btn = document.querySelector('.menu-toggle');
     const nav = document.getElementById('primary-nav');
-    function setExpanded(state){btn.setAttribute('aria-expanded', String(state));nav.setAttribute('aria-expanded', String(state));}
-    btn.addEventListener('click', () => {const expanded = btn.getAttribute('aria-expanded') === 'true';setExpanded(!expanded);if(!expanded) nav.querySelector('a')?.focus();});
-    document.addEventListener('keydown', (e)=>{if(e.key === 'Escape'){ setExpanded(false); btn.focus(); }});
-    nav.addEventListener('click', (e)=>{if(e.target.tagName === 'A'){ setExpanded(false); }});
+
+    function setExpanded(state){
+      btn.setAttribute('aria-expanded', String(state));
+      nav.setAttribute('aria-expanded', String(state));
+    }
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      setExpanded(!expanded);
+      if(!expanded) nav.querySelector('a')?.focus();
+    });
+
+    // Close menu on Escape or link click
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){ setExpanded(false); btn.focus(); }
+    });
+    nav.addEventListener('click', (e)=>{
+      if(e.target.tagName === 'A'){ setExpanded(false); }
+    });
   </script>
 </body>
 </html>
