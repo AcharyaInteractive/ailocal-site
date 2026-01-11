@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>AILocal — Local-First AI Architecture</title>
+  <title>AILocal – The Renaissance of Local Power</title>
 
   <!-- Meta -->
-  <meta name="description" content="Local-first AI architecture that keeps creators in control of code, models, and data." />
+  <meta name="description" content="Local-first AI architecture that lets non-coders build real software while keeping full control over code, models, and data." />
   <meta name="theme-color" content="#0a0908" />
-  <meta property="og:title" content="AILocal — Local-First AI Architecture" />
+  <meta property="og:title" content="AILocal – The Renaissance of Local Power" />
   <meta property="og:description" content="An offline-first AI architecture built for creators, not platforms. Keep the keys to your code, models, and data." />
   <meta property="og:url" content="https://ailocal.dev" />
   <meta property="og:type" content="website" />
@@ -23,198 +22,73 @@
 
   <style>
     :root{
+      /* Backgrounds */
       --bg-primary:#0a0908;
       --bg-secondary:#0f0e0d;
       --bg-tertiary:#111013;
+
+      /* Typography */
       --text-primary:#f0ebdf;
       --text-secondary:#d6ceb8;
       --text-tertiary:#e1dbc9;
       --muted:#8f8776;
+
+      /* Accents & rules */
       --accent:#c1d6ff;
       --accent-ink:#0a0e14;
       --rule-color:rgba(184,165,132,.25);
       --rule-color-light:rgba(184,165,132,.14);
+
+      /* Layout */
       --spacing:2rem;
       --maxw:720px;
       --radius:12px;
       --shadow:0 18px 40px rgba(0,0,0,.35);
     }
 
+    /* Reset / base */
     *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
     body{
       font-family:"Crimson Text", serif;
       font-size:19px;
       line-height:2.05;
       color:var(--text-primary);
       background:var(--bg-primary);
+      overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
+    a{color:var(--text-secondary)}
+    a:focus-visible,
+    button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:8px}
+
+    /* Header / Nav */
     header{
-      position:sticky;top:0;z-index:10;
-      display:flex;justify-content:space-between;align-items:center;
-      padding:1rem 2rem;
+      position:sticky;top:0;z-index:100;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0.9rem calc(var(--spacing)*1.5);
       background:rgba(10,9,8,.92);
+      -webkit-backdrop-filter:saturate(120%) blur(10px);
+      backdrop-filter:saturate(120%) blur(10px);
       border-bottom:1px solid var(--rule-color);
     }
-
     .logo{
-      font-family:Inter,system-ui,sans-serif;
-      font-weight:700;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      font-family:Inter, system-ui, sans-serif;
+      font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--text-primary);font-size:1.02rem;
     }
-
+    .menu-toggle{
+      display:none;
+      background:transparent;border:1px solid var(--rule-color);
+      color:var(--text-secondary);padding:.45rem .7rem;border-radius:8px;
+      font-family:Inter, system-ui, sans-serif;font-size:.82rem;cursor:pointer;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    .menu-toggle:hover{transform:translateY(-1px)}
+    nav{display:flex;gap:calc(var(--spacing)*1.1)}
     nav a{
-      color:var(--text-secondary);
-      text-decoration:none;
-      font-family:Inter,system-ui,sans-serif;
-      font-size:.82rem;
-      text-transform:uppercase;
-      letter-spacing:.09em;
-      margin-left:1.5rem;
-    }
-
-    section{padding:4rem 2rem}
-    .content{max-width:var(--maxw);margin:0 auto}
-
-    h1{
-      font-family:Inter,system-ui,sans-serif;
-      font-size:3rem;
-      text-transform:uppercase;
-      margin-bottom:1rem;
-    }
-
-    h2{
-      font-family:Inter,system-ui,sans-serif;
-      text-transform:uppercase;
-      font-size:1.4rem;
-      margin:3rem 0 1rem;
-    }
-
-    .hero{
-      text-align:center;
-      padding:6rem 2rem;
-      background:linear-gradient(130deg,#0a0908,#121521,#0a0908);
-    }
-
-    .tagline{
-      font-family:Inter,system-ui,sans-serif;
-      color:var(--text-secondary);
-      letter-spacing:.09em;
-    }
-
-    .video-wrap{
-      max-width:900px;
-      margin:3rem auto;
-    }
-
-    .video{
-      position:relative;
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
-      border:1px solid var(--rule-color);
-      border-radius:12px;
-    }
-
-    .video iframe{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      border:0;
-    }
-
-    footer{
-      text-align:center;
-      padding:2rem;
-      color:var(--muted);
-      border-top:1px solid var(--rule-color);
-      font-size:.9rem;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">AILocal</div>
-  <nav>
-    <a href="#video">Video</a>
-    <a href="#vision">Vision</a>
-    <a href="#origin">Origin</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>The Renaissance of Local Power</h1>
-  <p class="tagline">Your machine. Your IP. Your AI.</p>
-</section>
-
-<section id="video">
-  <div class="content">
-    <h2>Video</h2>
-
-    <div class="video-wrap">
-      <div class="video">
-        <iframe
-          src="https://www.youtube.com/embed/sd9V5Z1DsKU"
-          title="AILocal — A Local-First AI Architecture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-    <p>
-      This short video provides context for the project and its origins, for those
-      who have been following it quietly and wanted a clearer sense of the thinking
-      behind it.
-    </p>
-  </div>
-</section>
-
-<section id="vision">
-  <div class="content">
-    <h2>Vision</h2>
-    <p>
-      AILocal explores a local-first approach to AI development—one that keeps creators
-      in control of their tools, data, and intellectual property rather than tethering
-      creation to remote platforms.
-    </p>
-  </div>
-</section>
-
-<section id="origin">
-  <div class="content">
-    <h2>Origin</h2>
-    <p>
-      This project emerged from a practical gap: the absence of tools that allow
-      non-programmers to build real, modular software with AI while retaining autonomy.
-      AILocal is a constructive response to that absence.
-    </p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="content">
-    <h2>Contact</h2>
-    <p>
-      If this work resonates and you believe in local computation, data sovereignty,
-      and responsible tool-building, reach out privately.
-    </p>
-    <p>
-      <a href="mailto:founder@ailocal.dev">founder@ailocal.dev</a>
-    </p>
-  </div>
-</section>
-
-<footer>
-  © AILocal — Your machine. Your IP. Your AI.
-</footer>
-
-</body>
-</html>
-
-
-
+      color:var(--text-secondary);text-decoration:none;font-size:.82rem;
