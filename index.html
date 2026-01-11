@@ -92,3 +92,329 @@
     nav{display:flex;gap:calc(var(--spacing)*1.1)}
     nav a{
       color:var(--text-secondary);text-decoration:none;font-size:.82rem;
+      text-transform:uppercase;letter-spacing:.09em;position:relative;
+      font-family:Inter, system-ui, sans-serif;
+      transition:color .2s ease;
+    }
+    nav a:hover{color:var(--text-primary)}
+    nav a::after{
+      content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;
+      background:var(--accent);transition:width .22s ease;
+    }
+    nav a:hover::after{width:100%}
+
+    @media (max-width:860px){
+      .menu-toggle{display:inline-block}
+      nav{
+        position:fixed;inset:64px 0 auto 0;height:auto;
+        background:rgba(15,14,13,.98);
+        border-bottom:1px solid var(--rule-color);
+        padding:.6rem 1rem;display:none;flex-direction:column;gap:.7rem;
+      }
+      nav[aria-expanded="true"]{display:flex}
+    }
+
+    main{position:relative}
+
+    /* Hero */
+    .hero{
+      min-height:68vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;position:relative;overflow:hidden;padding:calc(var(--spacing)*2) var(--spacing);
+      background:linear-gradient(130deg,#0a0908 0%, #121521 60%, #0a0908 100%);
+      background-size:200% 200%;
+      animation:heroGrad 40s ease-in-out infinite alternate;
+      border-bottom:1px solid var(--rule-color);
+    }
+    @media (prefers-reduced-motion:reduce){.hero{animation:none}}
+    @keyframes heroGrad{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+    .hero::before,.hero::after{
+      content:"";position:absolute;top:0;height:100%;width:1px;background:var(--rule-color);opacity:.7
+    }
+    .hero::before{left:10%}.hero::after{right:10%}
+
+    h1{
+      font-family:Inter, system-ui, sans-serif;font-weight:700;
+      font-size:clamp(2.2rem,5.4vw,4rem);letter-spacing:-.02em;
+      text-transform:uppercase;color:var(--text-primary);
+      margin-bottom:calc(var(--spacing)*.4);
+      text-shadow:0 2px 14px rgba(0,0,0,.35);
+    }
+    .tagline{
+      font-family:Inter, system-ui, sans-serif;
+      font-size:1.06rem;color:var(--text-secondary);letter-spacing:.09em;
+      margin-bottom:calc(var(--spacing)*1.5);
+    }
+    .learn-more{
+      display:inline-block;font-family:Inter, system-ui, sans-serif;
+      color:var(--accent);text-decoration:none;text-transform:uppercase;
+      font-size:.92rem;letter-spacing:.12em;opacity:.95;border:1px solid transparent;
+      padding:.55rem .95rem;border-radius:999px;
+      transition:opacity .25s ease, transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .learn-more:hover{opacity:1;transform:translateY(-1px);background:rgba(193,214,255,.12);border-color:rgba(193,214,255,.25)}
+
+    /* Pull-quote */
+    .quote-section{
+      background:var(--bg-primary);
+      padding:calc(var(--spacing)*3.2) var(--spacing);
+      border-top:1px solid var(--rule-color);border-bottom:1px solid var(--rule-color);
+      position:relative
+    }
+    .quote-section::before{
+      content:"";position:absolute;top:calc(var(--spacing)*1.1);left:50%;transform:translateX(-50%);
+      width:44px;height:2px;background:var(--accent);opacity:.9
+    }
+    blockquote{
+      max-width:860px;margin:0 auto;line-height:1.95;
+      font-size:1.3rem;color:var(--text-primary);
+    }
+
+    /* Content */
+    section{padding:calc(var(--spacing)*3) var(--spacing)}
+    .content{max-width:var(--maxw);margin:0 auto;position:relative}
+    .content::before{
+      content:"";position:absolute;top:0;left:-90px;width:1px;height:100%;background:var(--rule-color)
+    }
+    .content h2{
+      font-family:Inter, system-ui, sans-serif;font-weight:700;
+      font-size:1.38rem;letter-spacing:.02em;text-transform:uppercase;
+      color:var(--text-primary);
+      margin:calc(var(--spacing)*1.6) 0 calc(var(--spacing)*.8);
+      scroll-margin-top:92px;
+    }
+    .content h2:first-child{margin-top:0}
+    .content p{
+      color:var(--text-tertiary);
+      margin-bottom:var(--spacing);
+    }
+    .content p em{color:var(--text-primary)}
+    .section-rule{
+      border:0;height:1px;background:var(--rule-color-light);
+      margin:calc(var(--spacing)*2) 0;transform-origin:left;transform:scaleX(.9);opacity:.95;
+      transition:transform .35s ease, opacity .35s ease;
+    }
+    .section-rule:is(:hover,:focus-visible){transform:scaleX(1);opacity:1}
+
+    /* Origin highlight (desktop) */
+    #origin-block{
+      background:linear-gradient(180deg, var(--bg-secondary) 0%, #141417 100%);
+      border:1px solid var(--rule-color);
+      border-radius:var(--radius);
+      padding:calc(var(--spacing)*2);
+      box-shadow:var(--shadow);
+      margin-top:calc(var(--spacing)*1.2);
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;background:var(--bg-primary);
+      padding:calc(var(--spacing)*3.6) var(--spacing);position:relative
+    }
+    .cta::before{
+      content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:var(--rule-color)
+    }
+    .cta h2{
+      font-family:Inter, system-ui, sans-serif;font-size:2rem;font-weight:700;
+      letter-spacing:-.02em;text-transform:uppercase;color:var(--text-primary);
+      margin-bottom:calc(var(--spacing)*1.1)
+    }
+    .cta p{
+      max-width:640px;margin:.45rem auto calc(var(--spacing)*1.15);
+      color:var(--text-secondary);font-size:1rem
+    }
+    .contact-button{
+      display:inline-block;padding:14px 38px;border-radius:999px;
+      background:var(--accent);color:var(--accent-ink);
+      text-decoration:none;font-family:Inter, system-ui, sans-serif;
+      font-size:.98rem;text-transform:uppercase;letter-spacing:.1em;
+      transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+      will-change:transform;
+    }
+    .contact-button:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(193,214,255,.18);filter:saturate(1.05)}
+
+    /* Footer */
+    footer{
+      background:var(--bg-tertiary);
+      border-top:1px solid var(--rule-color);
+      padding:calc(var(--spacing)*1.3) var(--spacing);
+      text-align:center;color:var(--text-secondary);
+      font-size:.9rem;text-transform:uppercase;letter-spacing:.05em; position:relative;
+    }
+    footer::before,footer::after{
+      content:"";display:block;height:1px;background:var(--rule-color-light);
+      margin:10px 0;
+    }
+    .project-credit{
+      margin-top:6px;font-size:.88rem;text-transform:none;color:var(--muted)
+    }
+
+    /* Mobile refinements */
+    @media (max-width:768px){
+      body{font-size:17px}
+      section{padding:56px 24px}
+      .content::before{display:none}
+      blockquote{font-size:1.18rem}
+      .hero{min-height:62vh}
+      h1{font-size:clamp(1.9rem,7.4vw,3rem)}
+
+      /* Flatten Origin styling on mobile */
+      #origin-block{
+        background:none;
+        border:none;
+        box-shadow:none;
+        padding:0;
+        margin-top:calc(var(--spacing)*0.8);
+      }
+    }
+
+    /* Video embed (scoped, minimal) */
+    .video-embed{
+      margin: calc(var(--spacing)*1.6) 0;
+    }
+    .video-embed__inner{
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--rule-color);
+      box-shadow: var(--shadow);
+    }
+    .video-embed__inner iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="logo">AILocal</div>
+
+    <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+
+    <nav id="primary-nav" role="navigation" aria-label="Primary" aria-expanded="false">
+      <a href="#vision">Vision</a>
+      <a href="#principles">Principles</a>
+      <a href="#restoration">Restoration</a>
+      <a href="#video">Video</a>
+      <a href="#origin">Origin</a>
+      <a href="#alliance">Alliance</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>The Renaissance of Local Power</h1>
+      <p class="tagline">Your machine. Your IP. Your AI.</p>
+      <a href="#vision" class="learn-more" aria-label="Jump to Vision">Learn More</a>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <section class="quote-section" aria-labelledby="manifesto-quote">
+      <blockquote id="manifesto-quote">
+        When institutions build tools that claim to serve everyone but still tether creation to their own platforms, the result is not empowerment but dependence. The gift is never free; every act of making carries an unseen cost — in data, in privacy, in autonomy. AILocal exists to change that bargain.
+      </blockquote>
+    </section>
+
+    <!-- CONTENT -->
+    <section id="vision">
+      <div class="content">
+        <h2>Vision</h2>
+        <p>Men and women of conviction belong at the vanguard of ingenuity — not the power brokers and gatekeepers of Silicon Valley. For too long, power has drifted from the hands of users to the vaults of corporations. What was once open and collaborative has become enclosed: subscription tithes, closed clouds, and the quiet trade of personal data for profit.</p>
+
+        <p>Tech monopolies have drawn the world into walled gardens that promise convenience but quietly erode agency and sovereignty. The result is a narrowing of human potential and the flattening of culture into short-form distraction. Technology has built the infrastructure to channel the creative spirit of the many — yet too often wastes that energy on the demands of the attention economy. The effects of this shortsightedness will be felt for generations, unless we choose a different path.</p>
+
+        <hr class="section-rule" aria-hidden="true">
+
+        <h2 id="principles">Principles</h2>
+        <p>I believe that everyone is already a domain expert in something. Innovation can come from the mind of any human being, and for the sake of progress, the tools of technological creation should belong to <em>everyone</em> — not only to an initiated few fluent in code and arcane computer languages.</p>
+
+        <hr class="section-rule" aria-hidden="true">
+
+        <h2 id="restoration">Restoration</h2>
+        <p>AILocal exists to return that power to those who understand their worlds best — teachers, artists, scientists, and small business owners — people with insight, not necessarily with technical training. AILocal offers this power freely, without requiring anyone to surrender privacy, sovereignty, or security.</p>
+
+        <p>The age of technological feudalism has lasted long enough. It is time for a renaissance of local power.</p>
+
+        <hr class="section-rule" aria-hidden="true">
+
+        <h2 id="video">Video</h2>
+
+        <div class="video-embed">
+          <div class="video-embed__inner">
+            <iframe
+              src="https://www.youtube.com/embed/sd9V5Z1DsKU"
+              title="AILocal — A Local-First AI Architecture"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <p>
+          This short video provides context for the project and its origins, for those who have been following it quietly and wanted a clearer sense of the thinking behind it.
+        </p>
+
+        <hr class="section-rule" aria-hidden="true">
+
+        <h2 id="origin">Origin</h2>
+        <div id="origin-block">
+          <p>I am a dentist — and a writer, composer, and systems designer — but I am not a programmer. Yet I've designed something that reimagines how we interact with AI, because I see the establishment building in the opposite direction. AILocal isn't another wrapper that thinks for you; it's an operating architecture that allows a total novice to harness the power of AI to create complex, modular software while never intruding on the user's autonomy. It was born of my own attempt to storm the ramparts of software development unarmed — and every workaround and failsafe I forged to survive that battle became what is now AILocal.</p>
+        </div>
+
+        <hr class="section-rule" aria-hidden="true">
+
+        <h2 id="alliance">Alliance</h2>
+        <p>If you're a developer or systems engineer who believes in local computation, data sovereignty, and human-centered design, I want to meet you. If you believe technology should be both ethical and sustainable — owned, not rented; profitable, not extractive — then let's build it together. I'm looking for a technical co-founder: someone serious, principled, and driven by the conviction that technology should serve the user, not the developer.</p>
+
+        <p>If this vision speaks to you, reach out. Let's build the alternative — and make the tools of creation belong to their creators once again.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Build the Alternative</h2>
+      <p>I'm a practicing dentist working on this project in my free time. I personally review every message, looking for the right fit — someone aligned in vision and spirit. Above all else, I'm seeking trust and the potential for a genuine creative partnership.</p>
+      <p>Tell me about yourself. Include your background in tech, of course, but also share what drives you beyond code — your interests, your passions, and your view of where technology should go next.</p>
+      <a class="contact-button" href="/cdn-cgi/l/email-protection#3f59504a515b5a4d7f5e5653505c5e53115b5a49004c4a5d555a5c4b027c501259504a515b5a4d1a0d0f76514e4a564d46" aria-label="Email the Founder">Email the Founder</a>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    © AILocal — Your machine. Your IP. Your AI.
+    <p class="project-credit">An Acharya Interactive project</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Accessible mobile nav
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('primary-nav');
+
+    function setExpanded(state){
+      btn.setAttribute('aria-expanded', String(state));
+      nav.setAttribute('aria-expanded', String(state));
+    }
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      setExpanded(!expanded);
+      if(!expanded) nav.querySelector('a')?.focus();
+    });
+
+    // Close menu on Escape or link click
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){ setExpanded(false); btn.focus(); }
+    });
+    nav.addEventListener('click', (e)=>{
+      if(e.target.tagName === 'A') setExpanded(false);
+    });
+  </script>
+</body>
+</html>
+
+
